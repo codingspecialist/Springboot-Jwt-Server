@@ -20,7 +20,6 @@ public class PostController {
 
     @PostMapping("/api/post")
     public ResponseEntity<?> save(@RequestBody PostRequest.SaveDTO reqDTO, @SessionUser LoginUser loginUser) {
-
         return ResponseEntity.ok(Resp.success(postService.게시글쓰기(reqDTO, loginUser)));
     }
 
