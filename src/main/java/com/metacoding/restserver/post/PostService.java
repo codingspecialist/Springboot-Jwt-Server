@@ -34,6 +34,15 @@ public class PostService {
     public List<PostResponse.DTO> 게시글목록보기(){
         Sort sort = Sort.by(Sort.Direction.DESC, "id");
         List<Post> posts = postRepository.findAll(sort);
+
+//        List<Integer> ids = posts.stream()
+//                .map(post -> post.getUser().getId())
+//                .distinct()
+//                .toList();
+//
+//        // select * from user_tb where id in (ids);
+//        List<User> users = userRepository.findByIds(ids);
+
         return posts.stream().map(post -> new PostResponse.DTO(post)).toList();
     }
 
